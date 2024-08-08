@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Noto_Sans_Display } from "next/font/google";
-import {ClerkProvider} from '@clerk/nextjs'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs';
 import "./globals.css";
 
 const noto = Noto_Sans_Display({ subsets: ["latin"] });
@@ -17,10 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-        <html lang="en">
-         <body className={noto.className}>{children}</body>
-       </html>
-    </ClerkProvider>
-    
-  );
+    <html lang="en">
+      <body>
+        
+        {children}
+      </body>
+    </html>
+  </ClerkProvider>
+)
+;
 }
